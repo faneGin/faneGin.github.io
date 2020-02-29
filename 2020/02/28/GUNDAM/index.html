@@ -50,13 +50,13 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="GUNDAM">
 <meta property="og:url" content="http://yoursite.com/2020/02/28/GUNDAM/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="GUNDAM">
 <meta property="og:description" content="这个是我第一篇博客，我想用它来记录一下我喜爱爱的“GUNDAM”《鋼彈系列》為富野由悠季自1979年所製作機動戰士鋼彈一作所派生出來的一連串續作、外傳及其他系列的總稱。ガンダム在中國大陸一般譯為高達或敢達、港澳譯為高達，臺灣譯為鋼彈。 這個由日本動畫公司日昇之下製作的系列SF動畫作品，對以日本為首的世界全球次文化界產生重大的影響。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4233593897,2133315336&fm=26&gp=0.jpg">
 <meta property="article:published_time" content="2020-02-28T11:14:06.000Z">
 <meta property="article:modified_time" content="2020-02-28T11:14:36.601Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="faneGin">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4233593897,2133315336&fm=26&gp=0.jpg">
 
@@ -72,7 +72,7 @@
   };
 </script>
 
-  <title>GUNDAM | Hexo</title>
+  <title>GUNDAM | GUNDAM</title>
   
 
 
@@ -116,7 +116,7 @@
     <div>
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">GUNDAM</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -175,12 +175,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="faneGin">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="GUNDAM">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -199,6 +199,20 @@
             </span>
 
           
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/02/28/GUNDAM/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/28/GUNDAM/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
@@ -243,6 +257,7 @@
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -294,7 +309,7 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
+  <p class="site-author-name" itemprop="name">faneGin</p>
   <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -332,7 +347,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">faneGin</span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
   </div>
@@ -390,6 +405,35 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el: '#valine-comments',
+      verify: false,
+      notify: false,
+      appId: 'sijfqqsxJUVV8BjIaxoaOGV0-gzGzoHsz',
+      appKey: 'uvPV8JMWJQIcgWmGNQMPTK6c',
+      placeholder: "Just go go",
+      avatar: 'mm',
+      meta: guest,
+      pageSize: '10' || 10,
+      visitor: false,
+      lang: '' || 'zh-cn',
+      path: location.pathname,
+      recordIP: false,
+      serverURLs: ''
+    });
+  }, window.Valine);
+});
+</script>
 
 </body>
 </html>
