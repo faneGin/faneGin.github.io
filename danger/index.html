@@ -4,7 +4,7 @@
 
 <head>
   
-  <title>标签：高达 - GUNDAM</title>
+  <title>修改Hosts文件临时解决Github图床无法访问查看的问题 - GUNDAM</title>
   <meta charset="UTF-8">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
@@ -12,16 +12,23 @@
   
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
-  <meta property="og:type" content="website">
-<meta property="og:title" content="GUNDAM">
-<meta property="og:url" content="http://www.fanegin.top/tags/%E9%AB%98%E8%BE%BE/index.html">
+  <meta name="description" content="紧急 ！紧急！紧急！最近我使用Github图床是老是碰到无法上传图片，以及无法查看博文图片的问题。 后来一查原来是最近国内的墙貌似又高了（两会在开）所以我找到了以下方法来解决。 方法一先找出host文件 ，文件的路径为 c:\windows\system32\drivers\etc    填入以下地址即可  199.232.68.133 raw.githubusercontent.com 方法2同">
+<meta property="og:type" content="article">
+<meta property="og:title" content="修改Hosts文件临时解决Github图床无法访问查看的问题">
+<meta property="og:url" content="http://www.fanegin.top/danger/index.html">
 <meta property="og:site_name" content="GUNDAM">
+<meta property="og:description" content="紧急 ！紧急！紧急！最近我使用Github图床是老是碰到无法上传图片，以及无法查看博文图片的问题。 后来一查原来是最近国内的墙貌似又高了（两会在开）所以我找到了以下方法来解决。 方法一先找出host文件 ，文件的路径为 c:\windows\system32\drivers\etc    填入以下地址即可  199.232.68.133 raw.githubusercontent.com 方法2同">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/faneGin/eation/master/data/QQ%E6%88%AA%E5%9B%BE20200616184628.png">
+<meta property="article:published_time" content="2020-06-16T10:38:25.000Z">
+<meta property="article:modified_time" content="2020-06-16T10:50:25.041Z">
 <meta property="article:author" content="faneGin">
+<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/faneGin/eation/master/data/QQ%E6%88%AA%E5%9B%BE20200616184628.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <link rel="stylesheet" href="/css/style.css?v=1592304643132">
+  <link rel="stylesheet" href="/css/style.css?v=1592304643091">
 
   
 <meta name="generator" content="Hexo 4.2.0"></head>
@@ -169,73 +176,67 @@
   </div>
   <div id="nexmoe-content">
     <div class="nexmoe-primary">
-        
-<section class="nexmoe-archives">
+        <div class="nexmoe-post">
+  
+      <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
+          <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="修改Hosts文件临时解决Github图床无法访问查看的问题" class="lazyload">
+          <h1>修改Hosts文件临时解决Github图床无法访问查看的问题</h1>
+      </div>
+  
 
-    <article>
-        
+  <div class="nexmoe-post-meta" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年06月16日</a>
+    <a><i class="nexmoefont icon-areachart"></i>286 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
+</div>
 
-        
-            <h2>2020</h2>
-            <ul>
-            
-                <li><span>02-28</span><a href="/GUNDAM/" >GUNDAM</a></li>
-            
-            </ul>
-        
-    </article>
+  <div class="nexmoe-post-right">
+    
+  </div>
+
+  <article>
+    <h1 id="紧急-！紧急！紧急！"><a href="#紧急-！紧急！紧急！" class="headerlink" title="紧急 ！紧急！紧急！"></a>紧急 ！紧急！紧急！</h1><p>最近我使用Github图床是老是碰到无法上传图片，以及无法查看博文图片的问题。</p>
+<p>后来一查原来是最近国内的墙貌似又高了（<strong>两会在开</strong>）所以我找到了以下方法来解决。</p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>先找出host文件 ，文件的路径为 <strong>c:\windows\system32\drivers\etc</strong> </p>
+<p><img data-sizes="auto" data-src="https://raw.githubusercontent.com/faneGin/eation/master/data/QQ%E6%88%AA%E5%9B%BE20200616184628.png" alt="" class="lazyload"></p>
+<p> 填入以下地址即可  <strong>199.232.68.133 raw.githubusercontent.com</strong></p>
+<h2 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h2><p>同上面方法第一步一样打开host文件，填入以下代码，注意<strong>#</strong>号后面有空格。</p>
+<p>#GitHub Start<br>52.74.223.119 github.com<br>192.30.253.119 gist.github.com<br>54.169.195.247 api.github.com<br>185.199.111.153 assets-cdn.github.com<br>151.101.76.133 raw.githubusercontent.com<br>151.101.108.133 user-images.githubusercontent.com<br>151.101.76.133 gist.githubusercontent.com<br>151.101.76.133 cloud.githubusercontent.com<br>151.101.76.133 camo.githubusercontent.com<br>151.101.76.133 avatars0.githubusercontent.com<br>151.101.76.133 avatars1.githubusercontent.com<br>151.101.76.133 avatars2.githubusercontent.com<br>151.101.76.133 avatars3.githubusercontent.com<br>151.101.76.133 avatars4.githubusercontent.com<br>151.101.76.133 avatars5.githubusercontent.com<br>151.101.76.133 avatars6.githubusercontent.com<br>151.101.76.133 avatars7.githubusercontent.com<br>151.101.76.133 avatars8.githubusercontent.com<br>#GitHub End</p>
+<h2 id="两种方法最好都记住已被不时之需。"><a href="#两种方法最好都记住已被不时之需。" class="headerlink" title="两种方法最好都记住已被不时之需。"></a>两种方法最好都记住已被不时之需。</h2>
+  </article>
+
+  <div class="nexmoe-post-meta">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/hexo/">hexo</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -link" href="/tags/hexo/" rel="tag">hexo</a>
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    
+      
+    
+    <section class="nexmoe-comment">
+    <div class="valine"></div>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.9/dist/Valine.min.js'></script>
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    new Valine({
+        el: '.valine',
+        appId: 'sijfqqsxJUVV8BjIaxoaOGV0-gzGzoHsz',
+        appKey: 'uvPV8JMWJQIcgWmGNQMPTK6c'
+    })
+</script>
 </section>
-
-<style>
-.nexmoe-archives article > *:first-child {
-    margin-top: 0;
-}
-.nexmoe-archives article > *:last-child {
-    margin-bottom: 0;
-}
-.nexmoe-archives ul {
-    list-style: none;
-    padding-left: 0!important;
-}
-.nexmoe-archives li {
-    position: relative;
-    padding: 10px 0;
-}
-.nexmoe-archives li::before {
-    content: "";
-    width: 14px;
-    height: 14px;
-    background: #ff4e6a;
-    display: inline-block;
-    vertical-align: middle;
-    margin-top: -2px;
-    margin-right: 11px;
-    border-radius: 100%;
-    border: 3px solid #fff;
-    z-index: 100;
-    position: relative;
-}
-.nexmoe-archives li::after {
-    content: "";
-    height: 100%;
-    width: 2px;
-    background: rgba(255, 78, 106, 0.2);
-    position: absolute;
-    left: 6px;
-    top: 20px;
-}
-.nexmoe-archives li:last-child:after {
-    display: none;
-}
-.nexmoe-archives span {
-    margin-right: 15px;
-}
-</style>
+  </div>
+</div>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="/js/app.js?v=1592304643133"></script>-->
+<!--<script src="/js/app.js?v=1592304643093"></script>-->
 
 
     <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
