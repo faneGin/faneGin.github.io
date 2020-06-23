@@ -21,14 +21,14 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/faneGin/eation/master/data/QQ%E6%88%AA%E5%9B%BE20200623101843.png">
 <meta property="article:published_time" content="2020-06-22T13:00:57.000Z">
-<meta property="article:modified_time" content="2020-06-23T02:34:51.328Z">
+<meta property="article:modified_time" content="2020-06-23T13:15:04.768Z">
 <meta property="article:author" content="faneGin">
 <meta property="article:tag" content="加速度计显示">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/faneGin/eation/master/data/QQ%E6%88%AA%E5%9B%BE20200623101843.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <link rel="stylesheet" href="/css/style.css?v=1592879734091">
+  <link rel="stylesheet" href="/css/style.css?v=1592918129975">
 
   
 <meta name="generator" content="Hexo 4.2.0"></head>
@@ -186,8 +186,8 @@
 
   <div class="nexmoe-post-meta" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2020年06月22日</a>
-    <a><i class="nexmoefont icon-areachart"></i>1,384 字</a>
-    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 7 分钟</a>
+    <a><i class="nexmoefont icon-areachart"></i>1,552 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 8 分钟</a>
 </div>
 
   <div class="nexmoe-post-right">
@@ -513,40 +513,45 @@
 <p>  }</p>
 </blockquote>
 <h3 id="效果如下图："><a href="#效果如下图：" class="headerlink" title="效果如下图："></a>效果如下图：</h3><p><img data-sizes="auto" data-src="https://raw.githubusercontent.com/faneGin/eation/master/data/QQ%E6%88%AA%E5%9B%BE20200623101843.png" alt="" class="lazyload"></p>
-<h4 id="代码精炼"><a href="#代码精炼" class="headerlink" title="代码精炼"></a>代码精炼</h4><p>在开启服务通知时，我们要先判断是否具有加速度计的服务和特性如上节。在接收通知的时候我们也要确保开启通知也能关闭通知。</p>
-<blockquote>
+<h4 id="代码精炼"><a href="#代码精炼" class="headerlink" title="代码精炼"></a>代码精炼</h4><h4 id="首先-添加变量（用来跟踪通知订阅的状态）"><a href="#首先-添加变量（用来跟踪通知订阅的状态）" class="headerlink" title="首先 添加变量（用来跟踪通知订阅的状态）"></a>首先 添加变量（用来跟踪通知订阅的状态）</h4><blockquote>
+<p>var notifications_enabled = false; </p>
+</blockquote>
+<h4 id="二-添加函数"><a href="#二-添加函数" class="headerlink" title="二 添加函数"></a>二 添加函数</h4><blockquote>
+<p>function setNotificationsStatus(status) {     notifications_enabled = status;     document.getElementById(‘status_notifications’).innerHTML = status; } </p>
+</blockquote>
+<h4 id="三-订阅和接收通知只能在我们与设备连接时执行。我们还需要检查连接的设备是否包含所要求的相关的服务和特征，然后我们才试图启用有关该特征的通知。按钮调用toggleAccelerometerNotifications-函数，函数如下"><a href="#三-订阅和接收通知只能在我们与设备连接时执行。我们还需要检查连接的设备是否包含所要求的相关的服务和特征，然后我们才试图启用有关该特征的通知。按钮调用toggleAccelerometerNotifications-函数，函数如下" class="headerlink" title="三 订阅和接收通知只能在我们与设备连接时执行。我们还需要检查连接的设备是否包含所要求的相关的服务和特征，然后我们才试图启用有关该特征的通知。按钮调用toggleAccelerometerNotifications()函数，函数如下:"></a>三 订阅和接收通知只能在我们与设备连接时执行。我们还需要检查连接的设备是否包含所要求的相关的服务和特征，然后我们才试图启用有关该特征的通知。按钮调用toggleAccelerometerNotifications()函数，函数如下:</h4><blockquote>
 <p>function toggleAccelerometerNotifications() { </p>
-<p>  console.log(“toggleAccelerometerNotifications”); </p>
-<p>  if (!connected) { </p>
+<p>console.log(“toggleAccelerometerNotifications”); </p>
+<p>if (!connected) { </p>
 <p>​    alert(“Error: Discover and connect to a device before using this function”); </p>
 <p>​    return; </p>
-<p>  } </p>
-<p>  if (!services_discovered) { </p>
+<p>} </p>
+<p>if (!services_discovered) { </p>
 <p>​    alert(“Error: Service discovery has not yet completed”); </p>
 <p>​    return; </p>
-<p>  } </p>
-<p>  if (!has_accelerometer_service) { </p>
+<p>} </p>
+<p>if (!has_accelerometer_service) { </p>
 <p>​    alert(“Error: The connected device does not contain the accelerometer service”); </p>
 <p>​    return;</p>
-<p>  } </p>
-<p>  if (!has_accelerometer_data) { </p>
+<p>} </p>
+<p>if (!has_accelerometer_data) { </p>
 <p>​    alert(“Error: The connected device does not contain the accelerometer data characteristic”);  return; </p>
-<p>  } </p>
-<p>  if (!notifications_enabled) { </p>
-<p>  accelerometer_data.startNotifications()</p>
+<p>} </p>
+<p>if (!notifications_enabled) { </p>
+<p>accelerometer_data.startNotifications()</p>
 <p>​    .then(_ =&gt; { </p>
 <p>​    console.log(‘accelerometer notifications started’); </p>
 <p>​    setNotificationsStatus(true); </p>
 <p>​    accelerometer_data.addEventListener(‘characteristicvaluechanged’, onAccelerometerData); </p>
-<p>  }) </p>
+<p>}) </p>
 <p>​    .catch(error =&gt; { </p>
 <p>​    console.log(‘Error: ‘ + error);  </p>
 <p>​    alert(‘Error: ‘ + error); </p>
 <p>​    return; </p>
-<p>  }); </p>
+<p>}); </p>
 <p>} </p>
-<p>  else</p>
-<p>  { </p>
+<p>else</p>
+<p>{ </p>
 <p>​    accelerometer_data.stopNotifications() </p>
 <p>​      .then(_ =&gt; { </p>
 <p>​      console.log(‘accelerometer notificaions stopped’); </p>
@@ -556,10 +561,10 @@
 <p>​      .catch(error =&gt; { </p>
 <p>​      console.log(‘Could not stop accelerometer_data notifications: ‘ + error); </p>
 <p>​    }); </p>
-<p>  }</p>
+<p>}</p>
 <p>}</p>
 </blockquote>
-<h4 id="再最后我们要将所接收到的地址打印在控制台上"><a href="#再最后我们要将所接收到的地址打印在控制台上" class="headerlink" title="再最后我们要将所接收到的地址打印在控制台上"></a>再最后我们要将所接收到的地址打印在控制台上</h4><blockquote>
+<h4 id="当然，通知也有启用和禁用，这取决于当前的订阅状态，代码也在上面其中。其中accelerometer-data-addEventListener-‘characteristicvaluechanged’-onAccelerometerData-这两句在这个函数启到一个监听的作用，一旦状态发生变化就会调用onAccelerometerData这个函数，该函数是用来显示X、Y、Z这三个轴的值添加onAccelerometerData函数，它将在每次收到通知时被调用。事件处理程序接收一个事件对象，将附加到事件对象目标值的ArrayBuffer中"><a href="#当然，通知也有启用和禁用，这取决于当前的订阅状态，代码也在上面其中。其中accelerometer-data-addEventListener-‘characteristicvaluechanged’-onAccelerometerData-这两句在这个函数启到一个监听的作用，一旦状态发生变化就会调用onAccelerometerData这个函数，该函数是用来显示X、Y、Z这三个轴的值添加onAccelerometerData函数，它将在每次收到通知时被调用。事件处理程序接收一个事件对象，将附加到事件对象目标值的ArrayBuffer中" class="headerlink" title="当然，通知也有启用和禁用，这取决于当前的订阅状态，代码也在上面其中。其中accelerometer_data.addEventListener(‘characteristicvaluechanged’,onAccelerometerData);这两句在这个函数启到一个监听的作用，一旦状态发生变化就会调用onAccelerometerData这个函数，该函数是用来显示X、Y、Z这三个轴的值添加onAccelerometerData函数，它将在每次收到通知时被调用。事件处理程序接收一个事件对象，将附加到事件对象目标值的ArrayBuffer中"></a>当然，通知也有启用和禁用，这取决于当前的订阅状态，代码也在上面其中。其中accelerometer_data.addEventListener(‘characteristicvaluechanged’,onAccelerometerData);这两句在这个函数启到一个监听的作用，一旦状态发生变化就会调用onAccelerometerData这个函数，该函数是用来显示X、Y、Z这三个轴的值添加onAccelerometerData函数，它将在每次收到通知时被调用。事件处理程序接收一个事件对象，将附加到事件对象目标值的ArrayBuffer中</h4><blockquote>
 <p>function onAccelerometerData(event) </p>
 <p>  { </p>
 <p>​    console.log(“onAccelerometerData”);</p>
@@ -605,7 +610,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="/js/app.js?v=1592879734094"></script>-->
+<!--<script src="/js/app.js?v=1592918129978"></script>-->
 
 
     <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
