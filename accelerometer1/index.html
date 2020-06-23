@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+<head>
+  
+  <title>accelerometer1 - GUNDAM</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
+  <meta name="description" content="加速度计显示">
+<meta property="og:type" content="article">
+<meta property="og:title" content="accelerometer1">
+<meta property="og:url" content="http://www.fanegin.top/accelerometer1/index.html">
+<meta property="og:site_name" content="GUNDAM">
+<meta property="og:description" content="加速度计显示">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/faneGin/eation/master/data/QQ%E6%88%AA%E5%9B%BE20200623101843.png">
+<meta property="article:published_time" content="2020-06-22T13:00:57.000Z">
+<meta property="article:modified_time" content="2020-06-23T02:32:18.680Z">
+<meta property="article:author" content="faneGin">
+<meta property="article:tag" content="加速度计显示">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/faneGin/eation/master/data/QQ%E6%88%AA%E5%9B%BE20200623101843.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
+  
+  <link rel="stylesheet" href="/css/style.css?v=1592879576453">
+
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="faneGin" class="mdui-btn mdui-btn-icon"><img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="faneGin"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="faneGin">
+            <img src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png" alt="faneGin" alt="faneGin">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>文章</span>13</div>
+        <div><span>标签</span>10</div>
+        <div><span>分类</span>4</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/archives" title="文章归档">
+            <i class="mdui-list-item-icon nexmoefont icon-container"></i>
+            <div class="mdui-list-item-content">
+                文章归档
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html/" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/PY.html/" title="我的朋友">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                我的朋友
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+            <label><input id="search_value" name="q" type="search" placeholder="搜索"></label>
+        </form>
+    </div>
+</div>
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">社交按钮</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://space.bilibili.com/12832135" target="_blank" mdui-tooltip="{content: '哔哩哔哩'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-bilibili"></i>
+        </a><a class="mdui-ripple" href="https://github.com/faneGin/" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">文章分类</h3>
+    <div class="nexmoe-widget">
+
+      <ul class="category-list">
+
+        
+
+
+        
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/hexo/">hexo</a>
+          <span class="category-list-count">3</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/micro-bit/">micro:bit</a>
+          <span class="category-list-count">4</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/随笔/">随笔</a>
+          <span class="category-list-count">2</span>
+        </li>
+
+        
+
+        <li class="category-list-item">
+          <a class="category-list-link" href="/categories/高达/">高达</a>
+          <span class="category-list-count">1</span>
+        </li>
+
+        
+      </ul>
+
+    </div>
+  </div>
+
+
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">标签云</h3>
+    <div id="randomtagcloud" class="nexmoe-widget tagcloud">
+      <a href="/tags/bilibili/" style="font-size: 10px;">bilibili</a> <a href="/tags/hexo/" style="font-size: 20px;">hexo</a> <a href="/tags/next/" style="font-size: 10px;">next</a> <a href="/tags/%E4%B9%8C%E6%89%98%E9%82%A6/" style="font-size: 10px;">乌托邦</a> <a href="/tags/%E5%8A%A0%E9%80%9F%E5%BA%A6%E8%AE%A1%E6%98%BE%E7%A4%BA/" style="font-size: 10px;">加速度计显示</a> <a href="/tags/%E5%90%8E%E6%B5%AA/" style="font-size: 10px;">后浪</a> <a href="/tags/%E5%AE%9E%E9%AA%8C/" style="font-size: 10px;">实验</a> <a href="/tags/%E7%89%B9%E6%80%A7%E8%AF%BB%E5%8F%96/" style="font-size: 10px;">特性读取</a> <a href="/tags/%E8%AE%BE%E5%A4%87%E8%BF%9E%E6%8E%A5/" style="font-size: 20px;">设备连接</a> <a href="/tags/%E9%AB%98%E8%BE%BE/" style="font-size: 10px;">高达</a>
+    </div>
+    
+  </div>
+
+  
+</aside>
+    <div class="nexmoe-copyright">
+        
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+  
+      <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
+          <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="accelerometer1" class="lazyload">
+          <h1>accelerometer1</h1>
+      </div>
+  
+
+  <div class="nexmoe-post-meta" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年06月22日</a>
+    <a><i class="nexmoefont icon-areachart"></i>1,384 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 7 分钟</a>
+</div>
+
+  <div class="nexmoe-post-right">
+    
+  </div>
+
+  <article>
+    <h2 id="加速度计显示"><a href="#加速度计显示" class="headerlink" title="加速度计显示"></a>加速度计显示</h2><a id="more"></a>
+
+<h3 id="上一篇我们运用了开发板的几个服务和特性来显示了板子的名称这次我们将使用加速度器来显示板子的X、Y、Z轴二栋坐标。"><a href="#上一篇我们运用了开发板的几个服务和特性来显示了板子的名称这次我们将使用加速度器来显示板子的X、Y、Z轴二栋坐标。" class="headerlink" title="上一篇我们运用了开发板的几个服务和特性来显示了板子的名称这次我们将使用加速度器来显示板子的X、Y、Z轴二栋坐标。"></a>上一篇我们运用了开发板的几个服务和特性来显示了板子的名称这次我们将使用加速度器来显示板子的X、Y、Z轴二栋坐标。</h3><h4 id="代码展示"><a href="#代码展示" class="headerlink" title="代码展示"></a>代码展示</h4><blockquote>
+<p>​    var  selected_device;  </p>
+<p>​    var  connected_server;  </p>
+<p>​    var  connected = false;  </p>
+<p>​    var  services_discovered = false; //在第5课上添加</p>
+<p>​    var  notifications_enabled = false; </p>
+<p>​    //在第5课上添加以下内容</p>
+<p>​    var has_accelerometer_service = false; </p>
+<p>​    var has_accelerometer_data = false;</p>
+<p>​    var has_led_service = false;</p>
+<p>​    var has_led_matrix_state = false;</p>
+<p>​    var has_device_information_service = false; </p>
+<p>​    var has_model_name_string = false; </p>
+<p>​    // service UUIDs </p>
+<p>​    ACCELEROMETER_SERVICE = ‘e95d0753-251d-470a-a062-fa1922dfa9a8’; </p>
+<p>​    LED_SERVICE = ‘e95dd91d-251d-470a-a062-fa1922dfa9a8’; </p>
+<p>​    DEVICE_INFORMATION_SERVICE = ‘0000180a-0000-1000-8000-00805f9b34fb’;</p>
+<p>​    // characteristic UUIDs </p>
+<p>​    ACCELEROMETER_DATA = ‘e95dca4b-251d-470a-a062-fa1922dfa9a8’; </p>
+<p>​    LED_MATRIX_STATE = ‘e95d7b77-251d-470a-a062-fa1922dfa9a8’; </p>
+<p>​    MODEL_NUMBER_STRING = ‘00002a24-0000-1000-8000-00805f9b34fb’; </p>
+<p>​    // cached characteristics </p>
+<p>​    var led_matrix_state; </p>
+<p>​    var model_number_string;</p>
+<p>​    var accelerometer_data; </p>
+<p>   //</p>
+<p>​    var service_count;</p>
+<p>​    var services_discovered;</p>
+<p>​    var characteristics_discovered; </p>
+<p>​    var characteristic_count ; </p>
+<p>​    function discoverOrdisconnectDevices() </p>
+<p>​    {</p>
+<p>​    console.log(“discoverDevicesOrDisconnect”); </p>
+<p>​    if (!connected)</p>
+<p>​      discoverDevices();</p>
+<p>​    else</p>
+<p>​    {</p>
+<p>​      selected_device.gatt.disconnect();</p>
+<p>​    }</p>
+<p>​    }</p>
+<p>​    function setNotificationsStatus(status) { </p>
+<p>​    notifications_enabled = status; </p>
+<p>​    document.getElementById(‘status_notifications’).innerHTML = status; </p>
+<p>​    }    </p>
+<p>​    function onDisconnected()      </p>
+<p>​    { </p>
+<p>​     console.log(“onDisconnected”); </p>
+<p>​     resetUI(); </p>
+<p>​    }</p>
+<p>​    </p>
+<p>​    function discoverDevices()</p>
+<p>​    {</p>
+<p>​    console.log(“discoverDevices”);       </p>
+<p>​    var options = {acceptAllDevices:true,</p>
+<p>​      optionalServices: [DEVICE_INFORMATION_SERVICE, ACCELEROMETER_SERVICE, LED_SERVICE] //在第5节课上添加</p>
+<p>​    }    </p>
+<p>​    navigator.bluetooth.requestDevice(options)  </p>
+<p>​    .then(device =&gt; {</p>
+<p>​      console.log(‘&gt; Name:’ + device.name);</p>
+<p>​      console.log(‘&gt; Id:’  + device.id);</p>
+<p>​      console.log(‘&gt; Connected:’ + device.gatt.connected);</p>
+<p>​      selected_device = device;</p>
+<p>​      console.log(selected_device);</p>
+<p>​      connect();               </p>
+<p>​    })</p>
+<p>​    .catch(error =&gt; {</p>
+<p>​      alert(‘ERROR:’ +error);</p>
+<p>​      console.log(‘ERROR:’ + error);</p>
+<p>​      });</p>
+<p>​    }</p>
+<p>​    function connect()               </p>
+<p>​    {</p>
+<p>​    console.log(“connecting”);</p>
+<p>​    selected_device.gatt.connect()</p>
+<p>​    .then(</p>
+<p>​      function (server)    //表示连接成功</p>
+<p>​      {</p>
+<p>​        console.log(“Connected to” + server.device.id);</p>
+<p>​        console.log(“Connected=” + server.connected);</p>
+<p>​        selected_device.addEventListener( ‘gattserverdisconnected’,onDisconnected); // 在第4课基础上添加的函数</p>
+<p>​        </p>
+<p>​        connected_server = server;</p>
+<p>​        discoverSvcsAndChars();  ////在第5课基础上添加的函数</p>
+<p>​        setConnectedStatus(true);  // 在第3课基础上添加的函数,设置电脑蓝牙的当前连接状态</p>
+<p>​        </p>
+<p>​      },</p>
+<p>​      function (error)    //表示连接失败</p>
+<p>​      {</p>
+<p>​        console.log(“ERROR:could not connct-“ + error);</p>
+<p>​        alert(“ERROR:could not connct-“ + error);</p>
+<p>​        setConnectedStatus(false); // 在第3课基础上添加的函数,设置电脑蓝牙的当前连接状态</p>
+<p>​        </p>
+<p>​      }</p>
+<p>​      );</p>
+<p>​    }</p>
+<p>​    function setConnectedStatus(status) // 在第3课基础上添加的函数,设置电脑蓝牙的当前连接状态</p>
+<p>​    {</p>
+<p>​    connected = status;</p>
+<p>​    document.getElementById(‘status_connected’).innerHTML = status;</p>
+<p>​    if (status == true) </p>
+<p>​    {  </p>
+<p>​      document.getElementById(‘btn_scan’).innerHTML = “Disconnect”; </p>
+<p>​    } </p>
+<p>​    else </p>
+<p>​    {  </p>
+<p>​      document.getElementById(‘btn_scan’).innerHTML = “Discover Devices”; </p>
+<p>​    }</p>
+<p>​    }</p>
+<p>​    function setDiscoveryStatus(status)</p>
+<p>​    { </p>
+<p>​     services_discovered = status; </p>
+<p>​     document.getElementById(‘status_discovered’).innerHTML = status;</p>
+<p>​    }</p>
+<p>​    function resetUI()   // 在第4课基础上添加的函数</p>
+<p>​    {</p>
+<p>​    setConnectedStatus(false);</p>
+<p>​    setDiscoveryStatus(false);  // 在第5课基础上添加的函数</p>
+<p>​    setNotificationsStatus(false); </p>
+<p>​    }</p>
+<p>​    function discoverSvcsAndChars()  //在第5课基础上添加的函数</p>
+<p>​    { </p>
+<p>​    console.log(“discoverSvcsAndChars server=” + connected_server); </p>
+<p>​    connected_server.getPrimaryServices()//调用函数去获取BBC上的相应的服务</p>
+<p>​    .then(services =&gt; //对服务进行判断</p>
+<p>​    {  </p>
+<p>​        has_accelerometer_service = false;  </p>
+<p>​        has_led_service = false;  </p>
+<p>​        has_device_information_service = false; </p>
+<p>​        services_discovered = 0;  </p>
+<p>​        service_count = services.length;  //发现BBC板服务的个数</p>
+<p>​        console.log(“Got “ + service_count + “ services”); </p>
+<p>​        services.forEach(service =&gt; //对已发现的所有服务进行判断</p>
+<p>​        {   </p>
+<p>​          if (service.uuid == ACCELEROMETER_SERVICE)</p>
+<p>​          {   </p>
+<p>​            has_accelerometer_service = true;  </p>
+<p>​          }   </p>
+<p>​          if (service.uuid == LED_SERVICE) </p>
+<p>​          {   </p>
+<p>​            has_led_service = true;   </p>
+<p>​          }   </p>
+<p>​          if (service.uuid == DEVICE_INFORMATION_SERVICE) </p>
+<p>​          {   </p>
+<p>​            has_device_information_service = true;   </p>
+<p>​          }   </p>
+<p>​          console.log(‘Getting Characteristics for service ‘ + service.uuid);   </p>
+<p>​          service.getCharacteristics() //获取相应服务的所有特性</p>
+<p>​          .then(characteristics =&gt; </p>
+<p>​          {   </p>
+<p>​            console.log(‘&gt; Service: ‘ + service.uuid);   </p>
+<p>​            services_discovered++;   //发现一个就加一</p>
+<p>​            characteristics_discovered = 0;   </p>
+<p>​            characteristic_count = characteristics.length;   //特性的个数</p>
+<p>​            characteristics.forEach(characteristic =&gt; //对已发现的特性进行判断</p>
+<p>​            {    </p>
+<p>​              characteristics_discovered++;    </p>
+<p>​              console.log(‘&gt;&gt; Characteristic: ‘ + characteristic.uuid);    </p>
+<p>​              if (characteristic.uuid == ACCELEROMETER_DATA)</p>
+<p>​              {    </p>
+<p>​                accelerometer_data = characteristic;    //把发现的相应特性保存到相应变量中</p>
+<p>​                has_accelerometer_data = true;    </p>
+<p>​              }    </p>
+<p>​              if (characteristic.uuid == LED_MATRIX_STATE) </p>
+<p>​              {    </p>
+<p>​                led_matrix_state = characteristic;    </p>
+<p>​                has_led_matrix_state = true;    </p>
+<p>​              }    </p>
+<p>​              if (characteristic.uuid == MODEL_NUMBER_STRING) </p>
+<p>​              {    </p>
+<p>​                model_number_string = characteristic;    </p>
+<p>​                has_model_name_string = true;    </p>
+<p>​              }    </p>
+<p>​              if (services_discovered == service_count &amp;&amp; characteristics_discovered == characteristic_count) </p>
+<p>​              {    </p>
+<p>​                console.log(“FINISHED DISCOVERY”); </p>
+<p>​                setDiscoveryStatus(true);    </p>
+<p>​                //setDiscoveryStatus(true);         </p>
+<p>​              }   </p>
+<p>​            });   </p>
+<p>​          });  </p>
+<p>​        }); </p>
+<p>​    });</p>
+<p>​    }</p>
+<p>​    function randomLEDs()//第六节课添加</p>
+<p>​    {</p>
+<p>​    console.log(“randomLEDs”);</p>
+<p>​    //state validation</p>
+<p>​    if (!connected)</p>
+<p>​      {</p>
+<p>​        alert(“Error: Discover and connect to a device before using this function”);</p>
+<p>​        return</p>
+<p>​      }</p>
+<p>​    if (!services_discovered)//有没有发现所有服务</p>
+<p>​      {</p>
+<p>​        alert(“Error: Service discovery has not yet completed”);</p>
+<p>​        return</p>
+<p>​      }</p>
+<p>​    if (!has_led_service)</p>
+<p>​      {</p>
+<p>​        alert(“Error: The connected device does not contain the LED service”);</p>
+<p>​        return</p>
+<p>​      }</p>
+<p>​    if (!has_led_matrix_state)//led灯的特性有没有被发现的一个标记变量</p>
+<p>​      {</p>
+<p>​        alert(“Error: The connected device does not contain the LED matrix state characteristic”);</p>
+<p>​        return;</p>
+<p>​      }</p>
+<p>​    var led_array = [0, 0, 0, 0, 0];</p>
+<p>​    </p>
+<p>​    //math.random():0~1 math.floor(x):返回小于等于x的最大整数</p>
+<p>​    led_array[0] = Math.floor(Math.random() * 32);</p>
+<p>​    led_array[1] = 1;</p>
+<p>​    led_array[2] = 2;</p>
+<p>​    led_array[3] = 3;</p>
+<p>​    led_array[4] = 4;</p>
+<p>​    </p>
+<p>​    var led_matrix_data = new Uint8Array(led_array);</p>
+<p>​    </p>
+<p>​    led_matrix_state.writeValue(led_matrix_data.buffer)//控制板子上灯亮灭</p>
+<p>​    .then(_ =&gt; {</p>
+<p>​      console.log(‘LED matrix state changed’);</p>
+<p>​    })</p>
+<p>​      .catch(error =&gt; {</p>
+<p>​      console.log(‘Error: ‘ + error);</p>
+<p>​      alert(‘Error: ‘ +error); return;</p>
+<p>​    });</p>
+<p>​    </p>
+<p>​    }</p>
+<p>  function readModelNumber() { </p>
+<p>  console.log(“readModelNumber”); </p>
+<p>  // state validation </p>
+<p>  if (!connected) { </p>
+<p>​    alert(“Error: Discover and connect to a device before using this function”);</p>
+<p>​    return; </p>
+<p>  }</p>
+<p>  if (!services_discovered) { </p>
+<p>​    alert(“Error: Service discovery has not yet completed”);</p>
+<p>​    return; </p>
+<p>  }</p>
+<p>  if (!has_device_information_service) { </p>
+<p>​    alert(“Error: The connected device does not contain the device information service”);  </p>
+<p>​    return; </p>
+<p>  }  </p>
+<p>  if (!has_model_name_string) {  </p>
+<p>​    alert(“Error: The connected device does not contain the model name string characteristic”); </p>
+<p>​    return; </p>
+<p>  }  </p>
+<p>​    </p>
+<p>  model_number_string.readValue() </p>
+<p>​    .then(value =&gt; {  </p>
+<p>​      data = new Uint8Array(value.buffer); </p>
+<p>​      model_number_string = new TextDecoder(“utf8”).decode(data); </p>
+<p>​      console.log(model_number_string); </p>
+<p>​      document.getElementById(“model_number”).innerHTML = model_number_string; </p>
+<p>  })  </p>
+<p>​    .catch(error =&gt; {  </p>
+<p>​    console.log(‘Error: ‘ + error);  </p>
+<p>​    alert(‘Error: ‘ + error);  </p>
+<p>​    return;  </p>
+<p>  }); </p>
+<p>}</p>
+<p>  function toggleAccelerometerNotifications() { </p>
+<p>  console.log(“toggleAccelerometerNotifications”); </p>
+<p>  if (!connected) { </p>
+<p>​    alert(“Error: Discover and connect to a device before using this function”); </p>
+<p>​    return; </p>
+<p>  } </p>
+<p>  if (!services_discovered) { </p>
+<p>​    alert(“Error: Service discovery has not yet completed”); </p>
+<p>​    return; </p>
+<p>  } </p>
+<p>  if (!has_accelerometer_service) { </p>
+<p>​    alert(“Error: The connected device does not contain the accelerometer service”); </p>
+<p>​    return;</p>
+<p>  } </p>
+<p>  if (!has_accelerometer_data) { </p>
+<p>​    alert(“Error: The connected device does not contain the accelerometer data characteristic”);  return; </p>
+<p>  } </p>
+<p>  if (!notifications_enabled) { </p>
+<p>  accelerometer_data.startNotifications()</p>
+<p>​    .then(_ =&gt; { </p>
+<p>​    console.log(‘accelerometer notifications started’); </p>
+<p>​    setNotificationsStatus(true); </p>
+<p>​    accelerometer_data.addEventListener(‘characteristicvaluechanged’, onAccelerometerData); </p>
+<p>  }) </p>
+<p>​    .catch(error =&gt; { </p>
+<p>​    console.log(‘Error: ‘ + error);  </p>
+<p>​    alert(‘Error: ‘ + error); </p>
+<p>​    return; </p>
+<p>  }); </p>
+<p>} </p>
+<p>  else</p>
+<p>  { </p>
+<p>​    accelerometer_data.stopNotifications() </p>
+<p>​      .then(_ =&gt; { </p>
+<p>​      console.log(‘accelerometer notificaions stopped’); </p>
+<p>​      setNotificationsStatus(false); </p>
+<p>​      accelerometer_data.removeEventListener(‘characteristicvaluechanged’, onAccelerometerData); </p>
+<p>​    })  </p>
+<p>​      .catch(error =&gt; { </p>
+<p>​      console.log(‘Could not stop accelerometer_data notifications: ‘ + error); </p>
+<p>​    }); </p>
+<p>  }</p>
+<p>}</p>
+<p>  function onAccelerometerData(event) </p>
+<p>  { </p>
+<p>​    console.log(“onAccelerometerData”);</p>
+<p>​    buffer = event.target.value.buffer; </p>
+<p>​    dataview = new DataView(buffer); </p>
+<p>​    X = dataview.getUint16(0, true); </p>
+<p>​    Y = dataview.getUint16(2, true); </p>
+<p>​    Z = dataview.getUint16(4, true); </p>
+<p>​    console.log(“X=” + X + “, Y=” + Y + “, Z+” + Z); document.getElementById(“accelerometer_data”).innerHTML = “X=” + X + “, Y=” + Y + “, Z=” + Z; </p>
+<p>  }</p>
+</blockquote>
+<h3 id="效果如下图："><a href="#效果如下图：" class="headerlink" title="效果如下图："></a>效果如下图：</h3><p><img data-sizes="auto" data-src="https://raw.githubusercontent.com/faneGin/eation/master/data/QQ%E6%88%AA%E5%9B%BE20200623101843.png" alt="" class="lazyload"></p>
+<h4 id="代码精炼"><a href="#代码精炼" class="headerlink" title="代码精炼"></a>代码精炼</h4><p>在开启服务通知时，我们要先判断是否具有加速度计的服务和特性如上节。在接收通知的时候我们也要确保开启通知也能关闭通知。</p>
+<blockquote>
+<p>function toggleAccelerometerNotifications() { </p>
+<p>  console.log(“toggleAccelerometerNotifications”); </p>
+<p>  if (!connected) { </p>
+<p>​    alert(“Error: Discover and connect to a device before using this function”); </p>
+<p>​    return; </p>
+<p>  } </p>
+<p>  if (!services_discovered) { </p>
+<p>​    alert(“Error: Service discovery has not yet completed”); </p>
+<p>​    return; </p>
+<p>  } </p>
+<p>  if (!has_accelerometer_service) { </p>
+<p>​    alert(“Error: The connected device does not contain the accelerometer service”); </p>
+<p>​    return;</p>
+<p>  } </p>
+<p>  if (!has_accelerometer_data) { </p>
+<p>​    alert(“Error: The connected device does not contain the accelerometer data characteristic”);  return; </p>
+<p>  } </p>
+<p>  if (!notifications_enabled) { </p>
+<p>  accelerometer_data.startNotifications()</p>
+<p>​    .then(_ =&gt; { </p>
+<p>​    console.log(‘accelerometer notifications started’); </p>
+<p>​    setNotificationsStatus(true); </p>
+<p>​    accelerometer_data.addEventListener(‘characteristicvaluechanged’, onAccelerometerData); </p>
+<p>  }) </p>
+<p>​    .catch(error =&gt; { </p>
+<p>​    console.log(‘Error: ‘ + error);  </p>
+<p>​    alert(‘Error: ‘ + error); </p>
+<p>​    return; </p>
+<p>  }); </p>
+<p>} </p>
+<p>  else</p>
+<p>  { </p>
+<p>​    accelerometer_data.stopNotifications() </p>
+<p>​      .then(_ =&gt; { </p>
+<p>​      console.log(‘accelerometer notificaions stopped’); </p>
+<p>​      setNotificationsStatus(false); </p>
+<p>​      accelerometer_data.removeEventListener(‘characteristicvaluechanged’, onAccelerometerData); </p>
+<p>​    })  </p>
+<p>​      .catch(error =&gt; { </p>
+<p>​      console.log(‘Could not stop accelerometer_data notifications: ‘ + error); </p>
+<p>​    }); </p>
+<p>  }</p>
+<p>}</p>
+</blockquote>
+<h4 id="再最后我们要将所接收到的地址打印在控制台上"><a href="#再最后我们要将所接收到的地址打印在控制台上" class="headerlink" title="再最后我们要将所接收到的地址打印在控制台上"></a>再最后我们要将所接收到的地址打印在控制台上</h4><blockquote>
+<p>function onAccelerometerData(event) </p>
+<p>  { </p>
+<p>​    console.log(“onAccelerometerData”);</p>
+<p>​    buffer = event.target.value.buffer; </p>
+<p>​    dataview = new DataView(buffer); </p>
+<p>​    X = dataview.getUint16(0, true); </p>
+<p>​    Y = dataview.getUint16(2, true); </p>
+<p>​    Z = dataview.getUint16(4, true); </p>
+<p>​    console.log(“X=” + X + “, Y=” + Y + “, Z+” + Z); document.getElementById(“accelerometer_data”).innerHTML = “X=” + X + “, Y=” + Y + “, Z=” + Z; </p>
+<p>  }</p>
+</blockquote>
+
+  </article>
+
+  <div class="nexmoe-post-meta">
+    
+        <a class="nexmoefont icon-appstore-fill -link" href="/categories/micro-bit/">micro:bit</a>
+    
+    
+        <a class="nexmoefont icon-tag-fill -link" href="/tags/%E5%8A%A0%E9%80%9F%E5%BA%A6%E8%AE%A1%E6%98%BE%E7%A4%BA/" rel="tag">加速度计显示</a>
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    
+      
+    
+    <section class="nexmoe-comment">
+    <div class="valine"></div>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.9/dist/Valine.min.js'></script>
+<script>
+    // 使用方法 https://valine.js.org/quickstart.html
+    new Valine({
+        el: '.valine',
+        appId: 'sijfqqsxJUVV8BjIaxoaOGV0-gzGzoHsz',
+        appKey: 'uvPV8JMWJQIcgWmGNQMPTK6c'
+    })
+</script>
+</section>
+  </div>
+</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!--<script src="/js/app.js?v=1592879576455"></script>-->
+
+
+    <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+
+</html>
